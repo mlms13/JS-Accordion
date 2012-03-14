@@ -1,0 +1,101 @@
+.jsAccordion {
+    font-family: sans-serif;
+    padding: 0;
+}
+.jsAccordion ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.jsAccordion ul li a, .jsAccordion ul li span {
+    background: #f1f1f1;
+    background-image: -moz-linear-gradient(center top, #f6f6f6, #eaeaea);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eaeaea));
+    border-top: 1px solid #fafafa;
+    border-bottom: 1px solid #e6e6e4;
+    -moz-box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    color: #666;
+    cursor: pointer;
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0 0 5px;
+    overflow: hidden;
+    padding: 8px 6px 4px 12px;
+    text-decoration: none;
+    text-shadow: 1px 1px 0px #fafafa;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#f6f6f6, endColorstr=#eaeaea);
+    zoom: 1;
+}
+.ie6 .jsAccordion ul li a, .ie6 .jsAccordion ul li span, .ie7 .jsAccordion ul li a, .ie7 .jsAccordion ul li span, .ie8 .jsAccordion ul li a, .ie8 .jsAccordion ul li span {
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.ie9 .jsAccordion ul li a, .ie9 .jsAccordion ul li span {
+    border-radius: 0px;
+}
+.jsAccordion ul li a:hover, .jsAccordion ul li span:hover {
+    background: #e6e6e4;
+    color: #555;
+    text-shadow: 1px 1px 0px #f3f3f3;
+    filter: none;
+    zoom: 1;
+}
+.jsAccordion ul li div {
+    overflow: hidden; /* expand the div to wrap the margin/padding of the elements it contains */
+    padding: 0 16px;
+}
+.jsAccordion ul li div p {
+    margin: 1em 0px; /* prevent jQuery jumps in IE 7 */
+}
+.jsAccordion ul li ul {
+    padding-bottom: 8px;
+}
+.jsAccordion ul li ul li:first-child {
+    background-position: 12px 14px;
+    padding-top: 12px;
+}
+.jsAccordion ul li ul li {
+    background: transparent url('./arrow.png') no-repeat 12px center;
+    font-size: 12px;
+    padding: 6px 8px 6px 30px;
+}
+.jsAccordion ul li ul li a {
+    color: #01573C;
+}
+.jsAccordion ul li ul li a:hover {
+    color: #743;
+}
+
+/* the rest of the styles override the base 'a' styles
+ * we could avoid this by using the direct child selector (>) above
+ * but that will break support for IE6 */
+
+.jsAccordion ul li ul li a {
+    background: transparent;
+    border: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    display: inline;
+    font-weight: normal;
+    padding: 0px;
+    text-shadow: none;
+    filter: none;
+}
+.ie6 .jsAccordion ul li ul li a, .ie6 .jsAccordion ul li ul li span, .ie7 .jsAccordion ul li ul li a, .ie7 .jsAccordion ul li ul li span, .ie8 .jsAccordion ul li ul li a, .ie8 .jsAccordion ul li ul li span {
+    border: none;
+}
+.jsAccordion ul li ul li a:hover {
+    background: transparent;
+    text-decoration: underline;
+    text-shadow: none;
+}

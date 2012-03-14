@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Navigation Accordion</title>
+        <meta charset="utf-8" />
+
+        <link rel="stylesheet" type="text/css" href="./accordion.css" />
+        <link rel="stylesheet" type="text/css" href="./accordion_tan.css" />
+        <link rel="stylesheet" type="text/css" href="./accordion_green.css" />
+        <style type="text/css">
+            /* The accordion defaults to the width of its parent unless excplicitely set. */
+            #nav {float: left; margin-right: 30px; width: 175px;}
+        </style>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+        <script type="text/javascript" src="./accordion.js"></script>
+        <script type="text/javascript">
+            // There are several ways to specify which panels are open when the page loads
+            // visiblePanels = '-all'; // a value of '-all' makes all accordion panels visible
+            // visiblePanels = 'sub-fruits'; // you can set a specific id to be visible
+            // visiblePanels = [0,2,3]; // a numeric, zero-based index also works, and you can pass in multiple values as an array
+            visiblePanels = [0, 'sub-fruits']; // you can also mix and match, but that gets confusing
+        </script>
+    </head>
+    <body>
+        <!-- Accordions must have a parent element with the class "jsAccordion" to get their style and functionality -->
+        <div id="nav" class="jsAccordion">
+            <!-- Each accordion must be in the form of a 'ul' element -->
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><span>Vegetables: Leaves, Stalk, and Roots</span><!-- Ideally, section labels should be wrapped in <span> tags -->
+                    <ul id="sub-veg"><!-- The hidden section must be either a ul or div -->
+                        <li>Carrots</li>
+                        <li><a href="#">Broccoli</a></li>
+                        <li><a href="#">Celery</a></li>
+                        <li><a href="#">Spinach</a></li>
+                    </ul>
+                </li>
+                <li>Fruits <!-- If section labels aren't wrapped in anything, jQuery will wrap a <span> tag around them -->
+                    <ul id="sub-fruits">
+                        <li><a href="#">Oranges</a></li>
+                        <li><a href="#">Pears</a></li>
+                        <li><a href="#">Grapes</a></li>
+                        <li><a href="#">Berries (including Boysenberries and Strawberries)</a></li>
+                        <li><a href="#">Peaches</a></li>
+                        <li><a href="#">Grapefruits</a></li>
+                    </ul>
+                </li>
+                <li><a href="http://health.usf.edu/">Dairy</a></li>
+                <li><a href="#">Grains</a> <!-- Section labels can also be wrapped with <a> tags. -->
+                    <ul id="sub-grains">
+                        <li><a href="#">Wheat</a></li>
+                        <li><a href="#">Oats</a></li>
+                        <li><a href="#">Flaxseed</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <p id="description">View the source code of this document and <a href="./accordion-dev.js">the corresponding JS file</a> for lots of inline documentation. To summarize, each accordion menu should be a &lt;ul&gt; contained within a parent that has the class "jsAccordion".  By default, all panels (containing sub-links) will be hidden, but each page can control which panels are open by default.</p>
+    </body>
+</html>
