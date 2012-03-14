@@ -2,6 +2,8 @@ var visiblePanels = null; // each page can set this to control which sections ar
 
 function Accordion() {
     this.initialize = function() {
+        // add the style class to each accordion
+        $('.jsAccordion').addClass('secondary-nav');
         // hide all sub-links
         $('.jsAccordion > ul > li').children('ul, div').hide();
         
