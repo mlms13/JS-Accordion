@@ -2,12 +2,12 @@
     font-family: sans-serif;
     padding: 0;
 }
-.secondary-nav ul {
-    list-style-type: none;
+.secondary-nav > ul, .secondary-nav > ul > li > ul {
+    list-style: none;
     margin: 0;
     padding: 0;
 }
-.secondary-nav ul li a, .secondary-nav ul li span {
+.secondary-nav > ul > li > a, .secondary-nav > ul > li > span {
     background: #f1f1f1;
     background-image: -moz-linear-gradient(center top, #f6f6f6, #eaeaea);
     background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eaeaea));
@@ -32,70 +32,45 @@
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#f6f6f6, endColorstr=#eaeaea);
     zoom: 1;
 }
-.ie6 .secondary-nav ul li a, .ie6 .secondary-nav ul li span, .ie7 .secondary-nav ul li a, .ie7 .secondary-nav ul li span, .ie8 .secondary-nav ul li a, .ie8 .secondary-nav ul li span {
+.ie7 .secondary-nav > ul > li > a, .ie7 .secondary-nav > ul > li > span,
+.ie8 .secondary-nav > ul > li > a, .ie8 .secondary-nav > ul > li > span {
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
 }
-.ie9 .secondary-nav ul li a, .ie9 .secondary-nav ul li span {
+.ie9 .secondary-nav > ul > li > a, .ie9 .secondary-nav > ul > li > span {
     border-radius: 0px;
 }
-.secondary-nav ul li a:hover, .secondary-nav ul li span:hover {
+.secondary-nav > ul > li > a:hover, .secondary-nav > ul > li > span:hover {
     background: #e6e6e4;
     color: #555;
     text-shadow: 1px 1px 0px #f3f3f3;
     filter: none;
     zoom: 1;
 }
-.secondary-nav ul li div {
+.secondary-nav > ul > li > div {
     overflow: hidden; /* expand the div to wrap the margin/padding of the elements it contains */
     padding: 0 16px;
 }
-.secondary-nav ul li div p {
+.secondary-nav > ul > li > div > p {
     margin: 1em 0px; /* prevent jQuery jumps in IE 7 */
 }
-.secondary-nav ul li ul {
+.secondary-nav > ul > li > ul {
     padding-bottom: 8px;
 }
-.secondary-nav ul li ul li:first-child {
+.secondary-nav > ul > li > ul > li:first-child {
     background-position: 12px 14px;
     padding-top: 12px;
 }
-.secondary-nav ul li ul li {
+.secondary-nav > ul > li > ul > li {
     background: transparent url('./arrow.png') no-repeat 12px center;
     font-size: 12px;
     padding: 6px 8px 6px 30px;
 }
-.secondary-nav ul li ul li a {
+.secondary-nav > ul > li > ul > li > a {
     color: #01573C;
+    text-decoration: none;
 }
-.secondary-nav ul li ul li a:hover {
+.secondary-nav > ul > li > ul > li > a:hover {
     color: #743;
-}
-
-/* the rest of the styles override the base 'a' styles
- * we could avoid this by using the direct child selector (>) above
- * but that will break support for IE6 */
-
-.secondary-nav ul li ul li a {
-    background: transparent;
-    border: none;
-    -moz-border-radius: 0px;
-    -webkit-border-radius: 0px;
-    border-radius: 0px;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    display: inline;
-    font-weight: normal;
-    padding: 0px;
-    text-shadow: none;
-    filter: none;
-}
-.ie6 .secondary-nav ul li ul li a, .ie6 .secondary-nav ul li ul li span, .ie7 .secondary-nav ul li ul li a, .ie7 .secondary-nav ul li ul li span, .ie8 .secondary-nav ul li ul li a, .ie8 .secondary-nav ul li ul li span {
-    border: none;
-}
-.secondary-nav ul li ul li a:hover {
-    background: transparent;
     text-decoration: underline;
-    text-shadow: none;
 }

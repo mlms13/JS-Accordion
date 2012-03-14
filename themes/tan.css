@@ -2,7 +2,7 @@
     border: 1px solid #ccc;
     font-family: Georgia, Times, serif;
 }
-.secondary-nav.tan ul li a, .secondary-nav.tan ul li span {
+.secondary-nav.tan > ul > li > a, .secondary-nav.tan > ul > li > span {
     background: #ecede2;
     border-top-color: #fafcf4;
     border-bottom-color: #e0e2dd;
@@ -16,36 +16,13 @@
     filter: none;
 }
 
-.secondary-nav.tan ul li a:hover, .secondary-nav.tan ul li span:hover {
+.secondary-nav.tan > ul > li > a:hover, .secondary-nav.tan > ul > li > span:hover {
     background: #f5f5e9;
 }
-.secondary-nav.tan ul li ul, .secondary-nav.tan ul li div {
+.secondary-nav.tan > ul > li > ul, .secondary-nav.tan > ul > li > div {
     background: #fafcf4;
     -mox-box-shadow: inset 0px 1px 3px #bbb;
     -webkit-box-shadow: inset 0px 1px 3px #bbb;
     box-shadow: inset 0px 1px 3px #bbb;
     color: #555;
-}
-
-
-/* the rest of the styles override the base 'a' styles
- * we could avoid this by using the direct child selector (>) above
- * but that will break support for IE6 */
-
-.secondary-nav.tan ul li ul li a, .secondary-nav.tan ul li div a {
-    background: transparent;
-    border: none;
-    border-radius: 0px;
-    box-shadow: none;
-    display: inline;
-    font-weight: normal;
-    padding: 0px;
-    text-shadow: none;
-	color: #00f;
-}
-.secondary-nav.tan ul li ul li a:hover, .secondary-nav.tan ul li div a:hover {
-    background: transparent;
-    color: #a13350;
-    text-decoration: underline;
-    text-shadow: none;
 }

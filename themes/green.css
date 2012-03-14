@@ -1,7 +1,7 @@
 .secondary-nav.green {
     border: 1px solid #385;
 }
-.secondary-nav.green ul li a, .secondary-nav.green ul li span {
+.secondary-nav.green > ul > li > a, .secondary-nav.green > ul > li > span {
     background: #5f9f7f;
     border-top: 1px solid #8fbfaf;
     border-bottom: 1px solid #385;
@@ -14,39 +14,17 @@
     filter: none;
 }
 
-.secondary-nav.green ul li a:hover, .secondary-nav.green ul li span:hover {
+.secondary-nav.green > ul > li > a:hover, .secondary-nav.green > ul > li > span:hover {
     background: #6FB08E;
 }
-.secondary-nav.green ul li div {
+.secondary-nav.green > ul > li > div {
     -mox-box-shadow: inset 0px 1px 3px #bbb;
     -webkit-box-shadow: inset 0px 1px 3px #bbb;
     box-shadow: inset 0px 1px 3px #bbb;
 }
-.secondary-nav.green ul li ul {
+.secondary-nav.green > ul > li > ul {
     background: #f8f8f4;
     -mox-box-shadow: inset 1px 2px 8px #999;
     -webkit-box-shadow: inset 1px 2px 8px #999;
     box-shadow: inset 1px 2px 8px #999;
-}
-
-/* the rest of the styles override the base 'a' styles
- * we could avoid this by using the direct child selector (>) above
- * but that will break support for IE6 */
-
-.secondary-nav.green ul li ul li a {
-    background: transparent;
-    border: none;
-    border-radius: 0px;
-    box-shadow: none;
-    color: #01573C;
-    display: inline;
-    font-weight: normal;
-    padding: 0px;
-    text-shadow: none;
-}
-.secondary-nav.green ul li ul li a:hover {
-    background: transparent;
-    color: #743;
-    text-decoration: underline;
-    text-shadow: none;
 }
