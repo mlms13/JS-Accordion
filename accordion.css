@@ -65,7 +65,7 @@
     padding-top: 12px;
 }
 .secondary-nav > ul > li > ul > li {
-    background: transparent url('./arrow.png') no-repeat 12px center;
+    background: transparent url('./images/arrow.png') no-repeat 12px center;
     font-size: 12px;
     padding: 6px 8px 6px 30px;
 }
