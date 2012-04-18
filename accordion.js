@@ -6,8 +6,10 @@ function Accordion() {
         $('.jsAccordion').addClass('secondary-nav');
         // hide all sub-links
         $('.jsAccordion > ul > li').children('ul, div').each(function () {
-            var padding = parseInt($(this).css('paddingLeft'), 10) + parseInt($(this).css('paddingLeft'), 10),
-                w = $(this).parent().width() - padding;
+            var padding = parseInt($(this).css('paddingLeft'), 10) + parseInt($(this).css('paddingRight'), 10),
+                border = parseInt($(this).css('borderLeft'), 10) + parseInt($(this).css('borderRight'), 10),
+                margin = parseInt($(this).css('marginLeft'), 10) + parseInt($(this).css('marginRight'), 10),
+                w = $(this).parent().width() - (padding + border + margin);
 
             $(this).hide().css({width: w});
         });
