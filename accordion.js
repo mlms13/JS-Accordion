@@ -5,7 +5,11 @@ function Accordion() {
         // add the style class to each accordion
         $('.jsAccordion').addClass('secondary-nav');
         // hide all sub-links
-        $('.jsAccordion > ul > li').children('ul, div').hide();
+        $('.jsAccordion > ul > li').children('ul, div').each(function () {
+            var w = $(this).parent().width();
+
+            $(this).hide().css({width: w});
+        });
         
         // find all non-empty, top-level text nodes and wrap them with span tags
         $('.jsAccordion > ul > li').contents().filter(function() {
