@@ -8,15 +8,15 @@
     padding: 0;
 }
 .secondary-nav > ul > li > a, .secondary-nav > ul > li > span {
-    background: #f6f6f6;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0,0,0,0.06)));
-    background-image: -webkit-linear-gradient(transparent, rgba(0,0,0,0.06));
-    background-image:    -moz-linear-gradient(transparent, rgba(0,0,0,0.06));
-    background-image:     -ms-linear-gradient(transparent, rgba(0,0,0,0.06));
-    background-image:      -o-linear-gradient(transparent, rgba(0,0,0,0.06));
-    background-image:         linear-gradient(transparent, rgba(0,0,0,0.06));
-    border-top: 1px solid #fafafa;
-    border-bottom: 1px solid #e6e6e4;
+    background: #fafafa;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0,0,0,0.08)));
+    background-image: -webkit-linear-gradient(transparent, rgba(0,0,0,0.08));
+    background-image:    -moz-linear-gradient(transparent, rgba(0,0,0,0.08));
+    background-image:     -ms-linear-gradient(transparent, rgba(0,0,0,0.08));
+    background-image:      -o-linear-gradient(transparent, rgba(0,0,0,0.08));
+    background-image:         linear-gradient(transparent, rgba(0,0,0,0.08));
+    border-top: 1px solid #f4f4f4;
+    border-bottom: 1px solid #e4e4e2;
     -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
        -moz-box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
             box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -28,12 +28,13 @@
     display: block;
     font-size: 13px;
     font-weight: bold;
+    line-height: 15px;
     margin: 0 0 5px;
     overflow: hidden;
     padding: 8px 6px 4px 12px;
     text-decoration: none;
-    text-shadow: 1px 1px 0px rgba(255,255,255,0.8);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#f6f6f6, endColorstr=#eaeaea);
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#00000000, endColorstr=#10000000);
     zoom: 1;
 }
 .ie7 .secondary-nav > ul > li > a, .ie7 .secondary-nav > ul > li > span,
@@ -45,10 +46,9 @@
     border-radius: 0px;
 }
 .secondary-nav > ul > li > a:hover, .secondary-nav > ul > li > span:hover {
-    background: #e6e6e4;
+    background-color: #f4f4f2;
+    border-bottom-color: #ddd;
     color: #555;
-    filter: none;
-    zoom: 1;
 }
 .secondary-nav > ul > li > div {
     overflow: hidden; /* expand the div to wrap the margin/padding of the elements it contains */
