@@ -6,7 +6,8 @@ function Accordion() {
         $('.jsAccordion').addClass('secondary-nav');
         // hide all sub-links
         $('.jsAccordion > ul > li').children('ul, div').each(function () {
-            var w = $(this).parent().width();
+            var padding = parseInt($(this).css('paddingLeft'), 10) + parseInt($(this).css('paddingLeft'), 10),
+                w = $(this).parent().width() - padding;
 
             $(this).hide().css({width: w});
         });
