@@ -34,16 +34,18 @@
     padding: 8px 6px 4px 12px;
     text-decoration: none;
     text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#00000000, endColorstr=#10000000);
-    zoom: 1;
 }
-.ie7 .secondary-nav > ul > li > a, .ie7 .secondary-nav > ul > li > span,
-.ie8 .secondary-nav > ul > li > a, .ie8 .secondary-nav > ul > li > span {
+.no-boxshadow .secondary-nav > ul > li > a,
+.no-boxshadow .secondary-nav > ul > li > span {
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
 }
-.ie9 .secondary-nav > ul > li > a, .ie9 .secondary-nav > ul > li > span {
-    border-radius: 0px;
+
+.no-cssgradients .secondary-nav > ul > li > a,
+.no-cssgradients .secondary-nav > ul > li > span {
+    /* Hide border radius if a filter may be used (for IE9's sake) */
+    border-radius: 0;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#00000000, endColorstr=#10000000);
 }
 .secondary-nav > ul > li > a:hover, .secondary-nav > ul > li > span:hover {
     background-color: #f4f4f2;
