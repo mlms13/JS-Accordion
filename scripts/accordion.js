@@ -57,12 +57,10 @@ function Accordion() {
                 if (openPanels.substr(0, 1) === '#') {
                     openPanels = openPanels.substr(1, openPanels.length);
                 }
-                $('.jsAccordion ul #' + openPanels).show();
-                $(this).parent().addClass('expanded');
+                $('.jsAccordion ul #' + openPanels).show().parent().addClass('expanded');
             }
             else if (typeof openPanels === 'number') {
-                $('.jsAccordion ul ul, .jsAccordion ul div').eq(openPanels).show();
-                $(this).parent().addClass('expanded');
+                $('.jsAccordion ul ul, .jsAccordion ul div').eq(openPanels).show().parent().addClass('expanded');
             }
             // if openPanels contains an array of items, loop through it and handle each one individually
             else if (openPanels.constructor === Array) {
