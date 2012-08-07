@@ -37,8 +37,8 @@ function Accordion() {
             }
             else {
                 // if you're opening a panel, it's safe to hide other panels in the same accordion
-                $(this).parents('.jsAccordion').find('ul ul:visible, ul li > div:visible').slideUp();
-                $(this).parents('.jsAccordion').find('ul ul:visible, ul li > div:visible').parent().removeClass('expanded');
+                $(this).parents('.jsAccordion').find('.expanded').removeClass('expanded')
+                    .children('ul:visible, div:visible').slideUp();
                 $(this).next('ul, div').slideDown();
                 $(this).parent().addClass('expanded');
             }
