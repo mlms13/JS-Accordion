@@ -71,7 +71,7 @@
                         if (panels.substr(0, 1) === '#') {
                             panels = panels.substr(1, panels.length);
                         }
-                        $this.find(panels).show().parent().addClass('expanded');
+                        $li.find('#' + panels).show().parent().addClass('expanded');
                     } else if (typeof panels === 'number') {
                         $li.children('ul, div').eq(panels).show().parent().addClass('expanded');
                     } else if (panels.constructor === Array) {
