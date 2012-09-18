@@ -2,7 +2,8 @@
     $.fn.jsAccordion = function (options) {
         var settings = $.extend({
             className: '',
-            openPanels: null
+            openPanels: null,
+            autoCollapse: true
         }, options);
 
         return this.each(function () {
@@ -53,10 +54,11 @@
                     $label.next('ul, div').slideUp();
                     $label.parent().removeClass('expanded');
                 } else {
-                    window.a = $li;
-                    // otherwise, if a panel is being opened, collapse all others
-                    $li.filter('.expanded').removeClass('expanded')
-                        .children('ul:visible, div:visible').slideUp();
+                    if (settings.autoCollapse) {
+                        // collapse all other panels
+                        $li.filter('.expanded').removeClass('expanded')
+                            .children('ul:visible, div:visible').slideUp();
+                    }
                     $label.next('ul, div').slideDown();
                     $label.parent().addClass('expanded');
                 }
