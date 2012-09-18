@@ -7,7 +7,7 @@
 
         return this.each(function () {
             var $this = $(this),
-                $li = $this.children('ul').children('li'),
+                $li = $this.children('li'),
                 showPanels = function (panels) {
                     if (panels) {
                         panels.show().parent().addClass('expanded');
@@ -57,8 +57,9 @@
                     $label.next('ul, div').slideUp();
                     $label.parent().removeClass('expanded');
                 } else {
+                    window.a = $li;
                     // otherwise, if a panel is being opened, collapse all others
-                    $label.parents('.jsAccordion').find('.expanded').removeClass('expanded')
+                    $li.filter('.expanded').removeClass('expanded')
                         .children('ul:visible, div:visible').slideUp();
                     $label.next('ul, div').slideDown();
                     $label.parent().addClass('expanded');

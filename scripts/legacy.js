@@ -10,6 +10,7 @@ $(function () {
 
         if (open !== null) {
             if (open === '-all') {
+                // open all panels if the keyword "-all" is used
                 panels = panels.add($('.jsAccordion > ul > li').children('ul, div'));
             } else if (typeof open === 'string') {
                 // assume we're working with an id; remove hash if present
@@ -27,8 +28,6 @@ $(function () {
         }
     }(visiblePanels));
 
-    $('.jsAccordion').jsAccordion({
-        className: 'secondary-nav',
-        openPanels: panels
-    });
+    $('.jsAccordion').addClass('secondary-nav')
+        .children('ul').jsAccordion({openPanels: panels});
 });
