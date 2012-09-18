@@ -19,15 +19,11 @@
 
             // hide all of the accordion's panels
             $li.children('ul, div').each(function () {
-                // animation is smoother if the panel's width is set
-                // we calculate it automatically based on the parent's width
                 var $panel = $(this),
-                    padding = parseInt($panel.css('paddingLeft'), 10) + parseInt($panel.css('paddingRight'), 10),
-                    border = parseInt($panel.css('borderLeft'), 10) + parseInt($panel.css('borderRight'), 10),
-                    margin = parseInt($panel.css('marginLeft'), 10) + parseInt($panel.css('marginRight'), 10),
-                    w = $panel.parent().width() - (padding + border + margin);
+                    width = $panel.width();
 
-                $panel.hide().css({width: w});
+                // hide panels and make animation smoother by defining a width
+                $panel.hide().width(width);
             });
 
             // expand the panels that should be open when the page loads
