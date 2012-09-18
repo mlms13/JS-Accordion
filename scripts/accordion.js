@@ -1,14 +1,18 @@
 (function ($) {
-    $.fn.jsAccordion = function () {
-        var settings = {
-            'className' : 'secondary-nav',
-            'openPanels' : visiblePanels
-        };
+    $.fn.jsAccordion = function (options) {
+        var settings = $.extend({
+            className: '',
+            openPanels: null
+        }, options);
 
         return this.each(function () {
             var $this = $(this),
                 $li = $this.children('ul').children('li'),
-                showPanels;
+                showPanels = function (panels) {
+                    if (panels) {
+                        panels.show().parent().addClass('expanded');
+                    }
+                };
 
             // add the style class to each accordion
             $this.addClass(settings.className);
@@ -25,6 +29,9 @@
 
                 $panel.hide().css({width: w});
             });
+
+            // expand the panels that should be open when the page loads
+            showPanels(settings.openPanels);
 
             // find all non-empty, top-level text nodes and wrap them with span tags
             $li.contents().filter(function () {
@@ -57,32 +64,6 @@
                     $label.parent().addClass('expanded');
                 }
             });
-
-            // determine which panels should be shown when the page loads
-            showPanels = function (panels) {
-                var i;
-
-                if (panels !== null) {
-                    if (panels === '-all') {
-                        $li.children('ul, div').show();
-                        $li.addClass('expanded');
-                    } else if (typeof panels === 'string') {
-                        // assume we're working with an id; remove hash if present
-                        if (panels.substr(0, 1) === '#') {
-                            panels = panels.substr(1, panels.length);
-                        }
-                        $li.find('#' + panels).show().parent().addClass('expanded');
-                    } else if (typeof panels === 'number') {
-                        $li.children('ul, div').eq(panels).show().parent().addClass('expanded');
-                    } else if (panels.constructor === Array) {
-                        // loop through the array and handle each item individually
-                        for (i = 0; i < panels.length; i += 1) {
-                            showPanels(panels[i]);
-                        }
-                    }
-                }
-            };
-            showPanels(settings.openPanels);
         });
     };
 }(jQuery));
