@@ -1,7 +1,7 @@
 (function ($) {
     $.fn.jsAccordion = function (options) {
         var settings = $.extend({
-            className: '',
+            accordionClass: '',
             labelClass: 'accordion-label',
             openPanels: null,
             autoCollapse: true
@@ -31,7 +31,7 @@
                 };
 
             // add the style class to each accordion
-            $this.addClass(settings.className);
+            $this.addClass(settings.accordionClass);
 
             // hide all of the accordion's panels
             $li.children('ul, div').hide();
