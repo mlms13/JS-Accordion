@@ -3,17 +3,18 @@
         var settings = $.extend({
             accordionClass: '',
             labelClass: 'accordion-label',
-            openPanels: null,
+            openPanels: [],
             autoCollapse: true
         }, options);
 
         return this.each(function () {
             var $this = $(this),
                 $li = $this.children('li'),
+                i,
                 setPanelWidth = function () {
                     $li.children('ul, div').each(function () {
                         // we use this complex width detection because jQuery's $(el).width() function
-                        // isn't reliable for hidden elements. This method always gets an accurate width
+                        // isn't reliable for hidden elements. This method always gets an accurate width.
                         var $panel = $(this),
                             padding = parseInt($panel.css('paddingLeft'), 10) + parseInt($panel.css('paddingRight'), 10),
                             border = parseInt($panel.css('borderLeft'), 10) + parseInt($panel.css('borderRight'), 10),
@@ -22,12 +23,6 @@
 
                         $panel.width(w);
                     });
-                },
-                showPanels = function (panels) {
-                    if (panels) {
-                        panels.show().parent().addClass('expanded');
-                        $(document).trigger('panelExpanded');
-                    }
                 };
 
             // add the style class to each accordion
@@ -37,8 +32,16 @@
             $li.children('ul, div').hide();
             $(document).trigger('panelCollapsed');
 
-            // expand the panels that should be open when the page loads
-            showPanels(settings.openPanels);
+            // if openPanels isn't already an array, make it one
+            if (settings.openPanels.constructor !== Array) {
+                settings.openPanels = [settings.openPanels];
+            }
+
+            // loop through openPanels, expand each panel that should be open when the page loads
+            for (i = 0; i < settings.openPanels.length; i += 1) {
+                $(settings.openPanels[i]).show().parent().addClass('expanded');
+                $(document).trigger('panelExpanded');
+            }
 
             // make animations smoother by defining a width
             setPanelWidth();
