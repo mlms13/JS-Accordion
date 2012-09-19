@@ -29,5 +29,8 @@ $(function () {
     }(visiblePanels));
 
     $('.jsAccordion').addClass('secondary-nav')
-        .children('ul').jsAccordion({openPanels: panels});
+        .children('ul').jsAccordion({
+            accordionClass: 'secondary-nav',
+            openPanels: panels
+        });
 });
