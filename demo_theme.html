@@ -22,15 +22,9 @@
         <script type="text/javascript" src="./scripts/accordion.js"></script>
         <script type="text/javascript">
             $(function () {
-                $('#nav').jsAccordion({
-                    accordionClass: 'secondary-nav',
-                    openPanels: ['#sub-veg', '#sub-grains']
-                });
-                $('#main > ul').jsAccordion({
-                    accordionClass: 'secondary-nav',
-                    openPanels: '#third-block'
-                });
-                $('#footer').jsAccordion({accordionClass: 'secondary-nav'})
+                $('#nav').jsAccordion({openPanels: ['#sub-veg', '#sub-grains']});
+                $('#main > ul').jsAccordion({openPanels: '#third-block'});
+                $('#footer').jsAccordion();
             });
         </script>
     </head>

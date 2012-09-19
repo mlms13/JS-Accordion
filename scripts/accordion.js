@@ -1,7 +1,7 @@
 (function ($) {
     $.fn.jsAccordion = function (options) {
         var settings = $.extend({
-            accordionClass: '',
+            accordionClass: 'secondary-nav',
             labelClass: 'accordion-label',
             openPanels: [],
             autoCollapse: true
