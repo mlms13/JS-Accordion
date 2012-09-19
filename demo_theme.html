@@ -20,46 +20,53 @@
         <script type="text/javascript" src="./scripts/modernizr.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script type="text/javascript" src="./scripts/accordion.js"></script>
-        <script type="text/javascript" src="./scripts/legacy.js"></script>
         <script type="text/javascript">
-            visiblePanels = [0, 'sub-grains', 'third-block'];
+            $(function () {
+                $('#nav').jsAccordion({
+                    accordionClass: 'secondary-nav',
+                    openPanels: ['#sub-veg', '#sub-grains']
+                });
+                $('#main > ul').jsAccordion({
+                    accordionClass: 'secondary-nav',
+                    openPanels: '#third-block'
+                });
+                $('#footer').jsAccordion({accordionClass: 'secondary-nav'})
+            });
         </script>
     </head>
     <body>
         <div id="container">
-            <div id="nav" class="jsAccordion">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><span>Vegetables: Leaves, Stalk, and Roots</span>
-                        <ul id="sub-veg">
-                            <li>Carrots</li>
-                            <li><a href="#">Broccoli</a></li>
-                            <li><a href="#">Celery</a></li>
-                            <li><a href="#">Spinach</a></li>
-                        </ul>
-                    </li>
-                    <li>Fruits
-                        <ul id="sub-fruits">
-                            <li><a href="#">Oranges</a></li>
-                            <li><a href="#">Pears</a></li>
-                            <li><a href="#">Grapes</a></li>
-                            <li><a href="#">Berries (including Boysenberries and Strawberries)</a></li>
-                            <li><a href="#">Peaches</a></li>
-                            <li><a href="#">Grapefruits</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="http://health.usf.edu/">Dairy</a></li>
-                    <li><a href="http://health.usf.edu/">Grains</a>
-                        <ul id="sub-grains">
-                            <li><a href="#">Wheat</a></li>
-                            <li><a href="#">Oats</a></li>
-                            <li><a href="#">Flaxseed</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div id="main" class="jsAccordion tan">
-                <ul>
+            <ul id="nav">
+                <li><a href="#">Home</a></li>
+                <li><span>Vegetables: Leaves, Stalk, and Roots</span>
+                    <ul id="sub-veg">
+                        <li>Carrots</li>
+                        <li><a href="#">Broccoli</a></li>
+                        <li><a href="#">Celery</a></li>
+                        <li><a href="#">Spinach</a></li>
+                    </ul>
+                </li>
+                <li>Fruits
+                    <ul id="sub-fruits">
+                        <li><a href="#">Oranges</a></li>
+                        <li><a href="#">Pears</a></li>
+                        <li><a href="#">Grapes</a></li>
+                        <li><a href="#">Berries (including Boysenberries and Strawberries)</a></li>
+                        <li><a href="#">Peaches</a></li>
+                        <li><a href="#">Grapefruits</a></li>
+                    </ul>
+                </li>
+                <li><a href="http://health.usf.edu/">Dairy</a></li>
+                <li><a href="http://health.usf.edu/">Grains</a>
+                    <ul id="sub-grains">
+                        <li><a href="#">Wheat</a></li>
+                        <li><a href="#">Oats</a></li>
+                        <li><a href="#">Flaxseed</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div id="main">
+                <ul class="tan">
                     <li><span>Section Heading</span>
                         <div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat justo nulla, et cursus urna. Morbi elit nisl, sodales a dignissim in, eleifend pretium ligula. Maecenas aliquet tortor vel orci faucibus posuere. Etiam dictum, turpis nec ultrices ullamcorper, massa nisl consequat lacus, ac blandit justo felis ac felis. Nulla vulputate imperdiet facilisis. Ut vel sodales mauris.</p>
@@ -81,27 +88,25 @@
                 </ul>
             </div>
         </div>
-        <div id="footer" class="jsAccordion green">
-            <ul>
-                <li><span>Section Heading</span>
-                    <div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat justo nulla, et cursus urna. Morbi elit nisl, sodales a dignissim in, eleifend pretium ligula. Maecenas aliquet tortor vel orci faucibus posuere. Etiam dictum, turpis nec ultrices ullamcorper, massa nisl consequat lacus, ac blandit justo felis ac felis. Nulla vulputate imperdiet facilisis. Ut vel sodales mauris.</p>
-                    </div>
-                </li>
-                <li><span>Title of Section</span>
-                    <div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat justo nulla, et cursus urna. Morbi elit nisl, sodales a dignissim in, eleifend pretium ligula. Maecenas aliquet tortor vel orci faucibus posuere. Etiam dictum, turpis nec ultrices ullamcorper, massa nisl consequat lacus, ac blandit justo felis ac felis. Nulla vulputate imperdiet facilisis. Ut vel sodales mauris.</p>
-                        <p>Phasellus rhoncus vehicula consectetur. Vestibulum a odio diam, sit amet dictum velit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse potenti. Donec gravida aliquam condimentum. Fusce vel erat nisl. Curabitur congue pharetra mi non scelerisque. Aliquam commodo dignissim feugiat. Vivamus aliquam commodo magna, quis vehicula dolor egestas in. Curabitur bibendum urna vitae nunc auctor sed mattis elit tristique.</p>
-                        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum commodo nisi at orci scelerisque a fermentum urna dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In non dolor quis nunc venenatis rutrum sed in nibh. Praesent sit amet eros quis leo commodo eleifend. Pellentesque vitae nibh non est commodo dignissim. Vivamus et commodo lectus.</p>
-                    </div>
-                </li>
-                <li><span>Third Block</span>
-                    <div>
-                        <p>Phasellus rhoncus vehicula consectetur. Vestibulum a odio diam, sit amet dictum velit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse potenti. Donec gravida aliquam condimentum. Fusce vel erat nisl. Curabitur congue pharetra mi non scelerisque. Aliquam commodo dignissim feugiat. Vivamus aliquam commodo magna, quis vehicula dolor egestas in. Curabitur bibendum urna vitae nunc auctor sed mattis elit tristique.</p>
-                        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum commodo nisi at orci scelerisque a fermentum urna dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In non dolor quis nunc venenatis rutrum sed in nibh. Praesent sit amet eros quis leo commodo eleifend. Pellentesque vitae nibh non est commodo dignissim. Vivamus et commodo lectus.</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
+        <ul id="footer" class="green">
+            <li><span>Section Heading</span>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat justo nulla, et cursus urna. Morbi elit nisl, sodales a dignissim in, eleifend pretium ligula. Maecenas aliquet tortor vel orci faucibus posuere. Etiam dictum, turpis nec ultrices ullamcorper, massa nisl consequat lacus, ac blandit justo felis ac felis. Nulla vulputate imperdiet facilisis. Ut vel sodales mauris.</p>
+                </div>
+            </li>
+            <li><span>Title of Section</span>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat justo nulla, et cursus urna. Morbi elit nisl, sodales a dignissim in, eleifend pretium ligula. Maecenas aliquet tortor vel orci faucibus posuere. Etiam dictum, turpis nec ultrices ullamcorper, massa nisl consequat lacus, ac blandit justo felis ac felis. Nulla vulputate imperdiet facilisis. Ut vel sodales mauris.</p>
+                    <p>Phasellus rhoncus vehicula consectetur. Vestibulum a odio diam, sit amet dictum velit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse potenti. Donec gravida aliquam condimentum. Fusce vel erat nisl. Curabitur congue pharetra mi non scelerisque. Aliquam commodo dignissim feugiat. Vivamus aliquam commodo magna, quis vehicula dolor egestas in. Curabitur bibendum urna vitae nunc auctor sed mattis elit tristique.</p>
+                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum commodo nisi at orci scelerisque a fermentum urna dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In non dolor quis nunc venenatis rutrum sed in nibh. Praesent sit amet eros quis leo commodo eleifend. Pellentesque vitae nibh non est commodo dignissim. Vivamus et commodo lectus.</p>
+                </div>
+            </li>
+            <li><span>Third Block</span>
+                <div>
+                    <p>Phasellus rhoncus vehicula consectetur. Vestibulum a odio diam, sit amet dictum velit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse potenti. Donec gravida aliquam condimentum. Fusce vel erat nisl. Curabitur congue pharetra mi non scelerisque. Aliquam commodo dignissim feugiat. Vivamus aliquam commodo magna, quis vehicula dolor egestas in. Curabitur bibendum urna vitae nunc auctor sed mattis elit tristique.</p>
+                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum commodo nisi at orci scelerisque a fermentum urna dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In non dolor quis nunc venenatis rutrum sed in nibh. Praesent sit amet eros quis leo commodo eleifend. Pellentesque vitae nibh non est commodo dignissim. Vivamus et commodo lectus.</p>
+                </div>
+            </li>
+        </ul>
     </body>
 </html>
