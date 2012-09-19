@@ -1,9 +1,9 @@
-.secondary-nav.tan > ul {
+.secondary-nav.tan {
   border: 1px solid #cccccc;
   font-family: Georgia, Times, serif;
 }
 
-.secondary-nav.tan > ul > li > a,.secondary-nav.tan > ul > li > span {
+.secondary-nav.tan > li > a,.secondary-nav.tan > li > span {
   background: #ecede2;
   border-top-color: #fafcf4;
   border-bottom-color: #e0e2dd;
@@ -19,11 +19,11 @@
   filter: none;
 }
 
-.secondary-nav.tan > ul > li > a:hover,.secondary-nav.tan > ul > li > span:hover {
+.secondary-nav.tan > li > a:hover,.secondary-nav.tan > li > span:hover {
   background: #f5f5e9;
 }
 
-.secondary-nav.tan > ul > li > ul,.secondary-nav.tan > ul > li > div {
+.secondary-nav.tan > li > ul,.secondary-nav.tan > li > div {
   background: #f5f5e9;
 
   -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);

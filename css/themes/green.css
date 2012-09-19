@@ -1,8 +1,8 @@
-.secondary-nav.green > ul {
+.secondary-nav.green {
   border: 1px solid #338855;
 }
 
-.secondary-nav.green > ul > li > a,.secondary-nav.green > ul > li > span {
+.secondary-nav.green > li > a,.secondary-nav.green > li > span {
   background: #5f9f7f;
   border-top: 1px solid #8fbfaf;
   border-bottom: 1px solid #338855;
@@ -17,16 +17,16 @@
   filter: none;
 }
 
-.secondary-nav.green > ul > li > a:hover,.secondary-nav.green > ul > li > span:hover {
+.secondary-nav.green > li > a:hover,.secondary-nav.green > li > span:hover {
   background: #6fb08e;
 }
 
-.secondary-nav.green > ul > li > div {
+.secondary-nav.green > li > div {
   -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 
-.secondary-nav.green > ul > li > ul {
+.secondary-nav.green > li > ul {
   background: #f8f8f4;
 
   -webkit-box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.4);
