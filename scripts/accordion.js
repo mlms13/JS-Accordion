@@ -3,7 +3,7 @@
         var settings = $.extend({
             accordionClass: '',
             labelClass: 'accordion-label',
-            openPanels: null,
+            openPanels: [],
             autoCollapse: true
         }, options);
 
@@ -13,7 +13,7 @@
                 setPanelWidth = function () {
                     $li.children('ul, div').each(function () {
                         // we use this complex width detection because jQuery's $(el).width() function
-                        // isn't reliable for hidden elements. This method always gets an accurate width
+                        // isn't reliable for hidden elements. This method always gets an accurate width.
                         var $panel = $(this),
                             padding = parseInt($panel.css('paddingLeft'), 10) + parseInt($panel.css('paddingRight'), 10),
                             border = parseInt($panel.css('borderLeft'), 10) + parseInt($panel.css('borderRight'), 10),
@@ -32,10 +32,10 @@
             $(document).trigger('panelCollapsed');
 
             // expand the panels that should be open when the page loads
-            if (settings.openPanels) {
-                settings.openPanels.show().parent().addClass('expanded');
+            $(settings.openPanels).each(function () {
+                $(this).show().parent().addClass('expanded');
                 $(document).trigger('panelExpanded');
-            }
+            });
 
             // make animations smoother by defining a width
             setPanelWidth();
