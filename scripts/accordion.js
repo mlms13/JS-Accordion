@@ -32,15 +32,15 @@
             // add the style class to each accordion
             $this.addClass(settings.className);
 
-            // make animations smoother by defining a width
-            setPanelWidth();
-            $(window).resize(setPanelWidth);
-
             // hide all of the accordion's panels
             $li.children('ul, div').hide();
 
             // expand the panels that should be open when the page loads
             showPanels(settings.openPanels);
+
+            // make animations smoother by defining a width
+            setPanelWidth();
+            $(window).resize(setPanelWidth);
 
             // find all non-empty, top-level text nodes and wrap them with span tags
             $li.contents().filter(function () {
