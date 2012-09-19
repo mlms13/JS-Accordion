@@ -12,8 +12,15 @@
                 $li = $this.children('li'),
                 setPanelWidth = function () {
                     $li.children('ul, div').each(function () {
-                        var $panel = $(this).css({width: 'auto'});
-                        $panel.width($panel.width());
+                        // we use this complex width detection because jQuery's $(el).width() function
+                        // isn't reliable for hidden elements. This method always gets an accurate width
+                        var $panel = $(this),
+                            padding = parseInt($panel.css('paddingLeft'), 10) + parseInt($panel.css('paddingRight'), 10),
+                            border = parseInt($panel.css('borderLeft'), 10) + parseInt($panel.css('borderRight'), 10),
+                            margin = parseInt($panel.css('marginLeft'), 10) + parseInt($panel.css('marginRight'), 10),
+                            w = $panel.parent().width() - (padding + border + margin);
+
+                        $panel.width(w);
                     });
                 },
                 showPanels = function (panels) {
