@@ -2,6 +2,7 @@
     $.fn.jsAccordion = function (options) {
         var settings = $.extend({
             className: '',
+            labelClass: 'accordion-label',
             openPanels: null,
             autoCollapse: true
         }, options);
@@ -35,33 +36,41 @@
                 return this.nodeType === 3 && $.trim(this.nodeValue) !== '';
             }).wrap('<span />');
 
-            // if an anchor precedes a hidden section, don't treat it as a link
-            $li.children('a').each(function () {
-                var $a = $(this);
+            $li.children('a, span').each(function () {
+                var $label = $(this);
 
-                if ($a.next('ul, div').length > 0) {
-                    $a.click(function (e) {
+                // if the `a` or `span` is a link instead of a label, return
+                if ($label.next('ul, div').length < 1) {
+                    return;
+                }
+
+                // each label that expands an accordion panel should be given a special class
+                $label.addClass(settings.labelClass);
+
+                // if those labels are links, prevent the links from doing anything
+                if ($label.is('a')) {
+                    $label.click(function (e) {
                         e.preventDefault();
                     });
                 }
-            });
 
-            $li.children('a, span').click(function () {
-                var $label = $(this);
-
-                if ($label.next('ul, div').is(':visible')) {
-                    // if the corresponding panel is visible, collapse it
-                    $label.next('ul, div').slideUp();
-                    $label.parent().removeClass('expanded');
-                } else {
-                    if (settings.autoCollapse) {
-                        // collapse all other panels
-                        $li.filter('.expanded').removeClass('expanded')
-                            .children('ul:visible, div:visible').slideUp();
+                // toggle the expanded/collapsed panel on click
+                $label.click(function () {
+                    // collapse the panel if it is currently visible
+                    if ($label.next('ul, div').is(':visible')) {
+                        $label.next('ul, div').slideUp();
+                        $label.parent().removeClass('expanded');
+                    } else {
+                        // if autoCollapse is on, collapse all other panels
+                        if (settings.autoCollapse) {
+                            $li.filter('.expanded').removeClass('expanded')
+                                .children('ul:visible, div:visible').slideUp();
+                        }
+                        $label.next('ul, div').slideDown();
+                        $label.parent().addClass('expanded');
                     }
-                    $label.next('ul, div').slideDown();
-                    $label.parent().addClass('expanded');
-                }
+                });
+
             });
         });
     };
