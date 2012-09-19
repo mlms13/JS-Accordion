@@ -10,6 +10,7 @@
         return this.each(function () {
             var $this = $(this),
                 $li = $this.children('li'),
+                i,
                 setPanelWidth = function () {
                     $li.children('ul, div').each(function () {
                         // we use this complex width detection because jQuery's $(el).width() function
@@ -31,11 +32,16 @@
             $li.children('ul, div').hide();
             $(document).trigger('panelCollapsed');
 
-            // expand the panels that should be open when the page loads
-            $(settings.openPanels).each(function () {
-                $(this).show().parent().addClass('expanded');
+            // if openPanels isn't already an array, make it one
+            if (settings.openPanels.constructor !== Array) {
+                settings.openPanels = [settings.openPanels];
+            }
+
+            // loop through openPanels, expand each panel that should be open when the page loads
+            for (i = 0; i < settings.openPanels.length; i += 1) {
+                $(settings.openPanels[i]).show().parent().addClass('expanded');
                 $(document).trigger('panelExpanded');
-            });
+            }
 
             // make animations smoother by defining a width
             setPanelWidth();
