@@ -22,12 +22,6 @@
 
                         $panel.width(w);
                     });
-                },
-                showPanels = function (panels) {
-                    if (panels) {
-                        panels.show().parent().addClass('expanded');
-                        $(document).trigger('panelExpanded');
-                    }
                 };
 
             // add the style class to each accordion
@@ -38,7 +32,10 @@
             $(document).trigger('panelCollapsed');
 
             // expand the panels that should be open when the page loads
-            showPanels(settings.openPanels);
+            if (settings.openPanels) {
+                settings.openPanels.show().parent().addClass('expanded');
+                $(document).trigger('panelExpanded');
+            }
 
             // make animations smoother by defining a width
             setPanelWidth();
