@@ -26,6 +26,7 @@
                 showPanels = function (panels) {
                     if (panels) {
                         panels.show().parent().addClass('expanded');
+                        $(document).trigger('panelExpanded');
                     }
                 };
 
@@ -34,12 +35,17 @@
 
             // hide all of the accordion's panels
             $li.children('ul, div').hide();
+            $(document).trigger('panelCollapsed');
 
             // expand the panels that should be open when the page loads
             showPanels(settings.openPanels);
 
             // make animations smoother by defining a width
             setPanelWidth();
+
+            // recalculate width when panels are toggled or the window is resized
+            $(document).bind('panelCollapsed', setPanelWidth);
+            $(document).bind('panelExpanded', setPanelWidth);
             $(window).resize(setPanelWidth);
 
             // find all non-empty, top-level text nodes and wrap them with span tags
@@ -69,7 +75,9 @@
                 $label.click(function () {
                     // collapse the panel if it is currently visible
                     if ($label.next('ul, div').is(':visible')) {
-                        $label.next('ul, div').slideUp();
+                        $label.next('ul, div').slideUp(function () {
+                            $(document).trigger('panelCollapsed');
+                        });
                         $label.parent().removeClass('expanded');
                     } else {
                         // if autoCollapse is on, collapse all other panels
@@ -77,7 +85,9 @@
                             $li.filter('.expanded').removeClass('expanded')
                                 .children('ul:visible, div:visible').slideUp();
                         }
-                        $label.next('ul, div').slideDown();
+                        $label.next('ul, div').slideDown(function () {
+                            $(document).trigger('panelExpanded');
+                        });
                         $label.parent().addClass('expanded');
                     }
                 });
