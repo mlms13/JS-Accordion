@@ -10,6 +10,12 @@
         return this.each(function () {
             var $this = $(this),
                 $li = $this.children('li'),
+                setPanelWidth = function () {
+                    $li.children('ul, div').each(function () {
+                        var $panel = $(this).css({width: 'auto'});
+                        $panel.width($panel.width());
+                    });
+                },
                 showPanels = function (panels) {
                     if (panels) {
                         panels.show().parent().addClass('expanded');
@@ -19,14 +25,12 @@
             // add the style class to each accordion
             $this.addClass(settings.className);
 
-            // hide all of the accordion's panels
-            $li.children('ul, div').each(function () {
-                var $panel = $(this),
-                    width = $panel.width();
+            // make animations smoother by defining a width
+            setPanelWidth();
+            $(window).resize(setPanelWidth);
 
-                // hide panels and make animation smoother by defining a width
-                $panel.hide().width(width);
-            });
+            // hide all of the accordion's panels
+            $li.children('ul, div').hide();
 
             // expand the panels that should be open when the page loads
             showPanels(settings.openPanels);
