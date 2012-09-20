@@ -14,12 +14,14 @@ The JS-Accordion jQuery plugin and related files -- including styles, images, an
 Changelog
 ----------------
 
-### v1.0
+### v1.0 (Sept 20, 2012)
 
 - Convert project to a true jQuery plugin
 - Rewrite styles using LESS
 - Trigger custom events when panels open and close
 - New option: allow multiple panels to be open at once
+- New option: automatically expand panels mentioned in the url hash
+- New option: add a class to each label that toggles a panel
 
 ### v0.2
 
