@@ -1,3 +1,7 @@
+/*! JS-Accordion v1.0 - https://github.com/mlms13/JS-Accordion */
+// Copyright 2012 Michael Martin-Smucker
+// Released under the MIT License
+
 (function ($) {
     $.fn.jsAccordion = function (options) {
         var settings = $.extend({
