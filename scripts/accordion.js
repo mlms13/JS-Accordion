@@ -8,12 +8,14 @@
             accordionClass: 'secondary-nav',
             labelClass: 'accordion-label',
             openPanels: [],
+            urlPanels: false,
             autoCollapse: true
         }, options);
 
         return this.each(function () {
             var $this = $(this),
                 $li = $this.children('li'),
+                $hash = $this.find(window.location.hash),
                 i,
                 setPanelWidth = function () {
                     $li.children('ul, div').each(function () {
@@ -39,6 +41,17 @@
             // if openPanels isn't already an array, make it one
             if (settings.openPanels.constructor !== Array) {
                 settings.openPanels = [settings.openPanels];
+            }
+
+            // if we should expand panels from the url hash, add them to the array
+            if (settings.urlPanels && $hash.length) {
+                if ($hash.is('li')) {
+                    settings.openPanels.push($hash.children('ul, div'));
+                } else if ($hash.is('a') || $hash.is('span')) {
+                    settings.openPanels.push($hash.next('ul, div'));
+                } else if ($hash.is('ul') || $hash.is('div')) {
+                    settings.openPanels.push($hash);
+                }
             }
 
             // loop through openPanels, expand each panel that should be open when the page loads
