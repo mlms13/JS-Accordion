@@ -1,6 +1,7 @@
-// Name: Accordion Compatibility Layer
-// Goal: smoothly transition legacy accordions to the new jQuery plugin
-// Author: Michael Martin-Smucker
+// Compatibility Layer
+// This compatibility script provides backwards compatibility with legacy accordions.
+// Include this script in your project if you have accordions that do not use
+// the jQuery plugin syntax: $(el).jsAccordion();
 
 $(function () {
     var panels = [];
