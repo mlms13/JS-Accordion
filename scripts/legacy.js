@@ -9,7 +9,7 @@ $(function () {
     (function getPanels(open) {
         var i;
 
-        if (open !== null) {
+        if (open !== null  && open !== undefined) {
             if (open === '-all') {
                 // open all panels if the keyword "-all" is used
                 panels.push($('.jsAccordion > ul > li').children('ul, div'));
@@ -27,7 +27,7 @@ $(function () {
                 }
             }
         }
-    }(visiblePanels));
+    }(window.visiblePanels));
 
     $('.jsAccordion').addClass('secondary-nav')
         .children('ul').jsAccordion({openPanels: panels});
