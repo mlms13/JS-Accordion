@@ -15,7 +15,7 @@
         return this.each(function () {
             var $this = $(this),
                 $li = $this.children('li'),
-                $hash = $this.find(window.location.hash),
+                $hash = (window.location.hash === '#') ? null : $this.find(window.location.hash),
                 i,
                 setPanelWidth = function () {
                     $li.children('ul, div').each(function () {
@@ -44,7 +44,7 @@
             }
 
             // if we should expand panels from the url hash, add them to the array
-            if (settings.urlPanels && $hash.length) {
+            if (settings.urlPanels && $hash && $hash.length) {
                 if ($hash.is('li')) {
                     settings.openPanels.push($hash.children('ul, div'));
                 } else if ($hash.is('a') || $hash.is('span')) {
