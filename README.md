@@ -1,4 +1,4 @@
-JS-Accordion 1.0
+JS-Accordion
 ================
 
 Description
