@@ -4,7 +4,7 @@ JS-Accordion 1.0
 Description
 ----------------
 
-JS-Accordion is a lightweight jQuery plugin that provides vertical accordions for navigation, FAQs, or other expanding/collapsing blocks of content. JS-Accordion is designed to be easy to customize and theme. See the various demo HTML files for usage instructions.
+JS-Accordion is a lightweight plugin for jQuery 1.7+. It provides vertical accordions for navigation, FAQs, or other expanding/collapsing blocks of content. JS-Accordion is designed to be easy to customize and theme. See the demo HTML files for usage instructions.
 
 License
 ----------------
@@ -13,6 +13,11 @@ The JS-Accordion jQuery plugin and related files -- including styles, images, an
 
 Changelog
 ----------------
+
+### v1.1 (July 2, 2013)
+
+- Remove legacy fallback script
+- Don't use jQuery's deprecated `bind()` for handling events
 
 ### v1.0 (Sept 20, 2012)
 
