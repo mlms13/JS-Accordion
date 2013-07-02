@@ -64,8 +64,8 @@
             setPanelWidth();
 
             // recalculate width when panels are toggled or the window is resized
-            $(document).bind('panelCollapsed', setPanelWidth);
-            $(document).bind('panelExpanded', setPanelWidth);
+            $(document).on('panelCollapsed', setPanelWidth);
+            $(document).on('panelExpanded', setPanelWidth);
             $(window).resize(setPanelWidth);
 
             // find all non-empty, top-level text nodes and wrap them with span tags
@@ -86,13 +86,13 @@
 
                 // if those labels are links, prevent the links from doing anything
                 if ($label.is('a')) {
-                    $label.click(function (e) {
+                    $label.on('click', function (e) {
                         e.preventDefault();
                     });
                 }
 
                 // toggle the expanded/collapsed panel on click
-                $label.click(function () {
+                $label.on('click', function () {
                     // collapse the panel if it is currently visible
                     if ($label.next('ul, div').is(':visible')) {
                         $label.next('ul, div').slideUp(function () {
